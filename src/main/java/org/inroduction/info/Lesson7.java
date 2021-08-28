@@ -7,9 +7,12 @@ import java.util.Random;
 
 public class Lesson7 {
 
+    public static int racetrackLength = 250;
+
     public static Horse[] HORSES = new Horse[10];
 
     public static void main(String[] args) throws IOException {
+
 
         Horse horse1 = new Horse("Hector");
         Horse horse2 = new Horse("Heracles");
@@ -107,7 +110,7 @@ public class Lesson7 {
 
     public static void setTime() {
         for (Horse horse : HORSES) {
-            int time = new Random().nextInt(20);
+            int time = new Random().nextInt(20) + 1;
             horse.setRaceTime(time);
         }
     }
@@ -115,8 +118,18 @@ public class Lesson7 {
     public static void startRace() {
         setTime();
 
+        System.out.println();
+        //System.out.println("Speed of the horses: ");
+        for (int i = 0; i < 10; i++) {
+            HORSES[i].calculateHorseSpeed(racetrackLength);
+            HORSES[i].getSpeed();
+            //System.out.println(HORSES[i].getName() + " - " + HORSES[i].getSpeed());
+        }
+        //System.out.println();
+
         Horse horseWithMinimumTime = getFastestHorse();
-        System.out.println("Winner is " + horseWithMinimumTime.getName());
+        horseWithMinimumTime.calculateHorseSpeed(racetrackLength);
+        System.out.println("Winner is " + horseWithMinimumTime.getName() + " with the speed " + horseWithMinimumTime.getSpeed());
         if (horseWithMinimumTime.getBet() > 0) {
             System.out.println("Your win is " + horseWithMinimumTime.getBet() * 2);
         }
@@ -124,12 +137,12 @@ public class Lesson7 {
         horseWithMinimumTime.setRaceTime(Integer.MAX_VALUE);
         horseWithMinimumTime = getFastestHorse();
 
-        System.out.println("Second winner is " + horseWithMinimumTime.getName());
+        System.out.println("Second winner is " + horseWithMinimumTime.getName() + " with the speed " + horseWithMinimumTime.getSpeed());
 
         horseWithMinimumTime.setRaceTime(Integer.MAX_VALUE);
         horseWithMinimumTime = getFastestHorse();
 
-        System.out.println("Third winner is " + horseWithMinimumTime.getName());
+        System.out.println("Third winner is " + horseWithMinimumTime.getName() + " with the speed " + horseWithMinimumTime.getSpeed());
 
     }
 
