@@ -11,10 +11,6 @@ public class Horse {
         this.name = name;
     }
 
-    public Horse(String name, int speed) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }
@@ -39,13 +35,7 @@ public class Horse {
         return speed;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    @Override
-    public String toString() {
-        return
-                "name='" + name + '\'' ;
+    public int calculateHorseSpeed(int racetrackLength) {
+         return speed = racetrackLength/raceTime;
     }
 }
