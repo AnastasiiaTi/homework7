@@ -58,7 +58,6 @@ public class Lesson7 {
 
             setBets(horse, reader);
             counter++;
-
         }
 
         reader.close();
@@ -119,13 +118,10 @@ public class Lesson7 {
         setTime();
 
         System.out.println();
-        //System.out.println("Speed of the horses: ");
         for (int i = 0; i < 10; i++) {
             HORSES[i].calculateHorseSpeed(racetrackLength);
             HORSES[i].getSpeed();
-            //System.out.println(HORSES[i].getName() + " - " + HORSES[i].getSpeed());
         }
-        //System.out.println();
 
         Horse horseWithMinimumTime = getFastestHorse();
         horseWithMinimumTime.calculateHorseSpeed(racetrackLength);
